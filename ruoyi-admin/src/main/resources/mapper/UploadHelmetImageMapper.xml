@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.mapper.UploadHelmetImageMapper">
+
+    <resultMap id="HelmetInfoResult" type="HelmetInfo">
+        <id     property="deviceId"          column="deviceId"      />
+        <result property="deviceName"        column="deviceName"    />
+        <result property="imageName"         column="imageName"     />
+        <result property="imageType"         column="imageType"     />
+        <result property="imageSize"         column="imageSize"     />
+        <result property="imageUrl"          column="imageUrl"      />
+        <result property="creatTime"         column="creatTime"     />
+    </resultMap>
+
+    <insert id="saveHelmetImage" parameterType="com.ruoyi.web.domain.HelmetInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into sms_image (
+        <if test="deviceId != null">deviceId,</if>
+        <if test="deviceName != null and deviceName != ''">deviceName,</if>
+        <if test="imageName != null and imageName != ''">imageName,</if>
+        <if test="imageType != null and imageType != ''">imageType,</if>
+        <if test="imageSize != null and imageSize != ''">imageSize,</if>
+        <if test="imageUrl != null and imageUrl != ''">imageUrl,</if>
+        <if test="creatTime != null">creatTime</if>
+        )values(
+        <if test="deviceId != null">#{deviceId},</if>
+        <if test="deviceName != null and deviceName != ''">#{deviceName},</if>
+        <if test="imageName != null and imageName != ''">#{imageName},</if>
+        <if test="imageType != null and imageType != ''">#{imageType},</if>
+        <if test="imageSize != null and imageSize != ''">#{imageSize},</if>
+        <if test="imageUrl != null and imageUrl != ''">#{imageUrl},</if>
+        <if test="creatTime != null">#{creatTime}</if>
+        )
+    </insert>
+
+</mapper>
