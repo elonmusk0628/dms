@@ -67,6 +67,13 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- ruoyi-quartz-->
+        <dependency>
+            <groupId>com.ruoyi</groupId>
+            <artifactId>ruoyi-quartz</artifactId>
+            <version>3.8.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
