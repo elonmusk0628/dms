@@ -74,6 +74,13 @@
             <version>3.8.3</version>
         </dependency>
 
+        <!-- hutool util -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.0.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>
