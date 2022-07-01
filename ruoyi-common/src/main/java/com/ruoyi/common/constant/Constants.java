@@ -134,4 +134,14 @@ public class Constants
      */
     public static final String[] JOB_ERROR_STR = { "java.net.URL", "javax.naming.InitialContext", "org.yaml.snakeyaml",
             "org.springframework", "org.apache", "com.ruoyi.common.utils.file" };
+
+    /**
+     * 本地IP地址(win10)
+     */
+    public static final String LOCALHOST_IP_ADDRESS = "http://192.168.1.30:8080";
+
+    /**
+     * 腾讯云平台服务器地址(ubuntu18.04)
+     */
+    public static final String TENCENT_IP_ADDRESS = "http://119.45.113.219:8080";
 }
