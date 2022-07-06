@@ -8,6 +8,7 @@ import com.ruoyi.web.domain.HelmetInfo;
 import com.ruoyi.web.mapper.UploadHelmetImageMapper;
 import com.ruoyi.web.service.IUploadHelmetImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.io.IOException;
  * @author maj
  * @date 2022-07-01
  */
+@Service
 public class UploadHelmetImageServiceImpl  implements IUploadHelmetImageService {
 
     @Autowired
