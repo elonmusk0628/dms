@@ -77,6 +77,6 @@ public class DeviceMonitorServiceImpl implements IDeviceMonitorService{
         saveImageInfo.setCreatTime(deviceInfo.getCreatTime());
 
         // 调用mapper接口保存仪表监测图片
-        deviceMonitorMapper.saveHelmetImage(saveImageInfo);
+        deviceMonitorMapper.saveDeviceImage(saveImageInfo);
     }
 }
