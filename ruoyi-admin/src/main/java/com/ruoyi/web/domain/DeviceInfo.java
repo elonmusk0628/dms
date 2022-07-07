@@ -40,6 +40,9 @@ public class DeviceInfo {
     /** 图片大小 */
     private Double imageSize;
 
+    /** 识别结果 */
+    private Double imageResult;
+
     /** 图片链接 */
     private String imageUrl;
 
