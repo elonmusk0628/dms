@@ -23,6 +23,7 @@
         <if test="imageName != null and imageName != ''">imageName,</if>
         <if test="imageType != null and imageType != ''">imageType,</if>
         <if test="imageSize != null and imageSize != ''">imageSize,</if>
+        <if test="imageResult != null and imageResult != ''">imageResult,</if>
         <if test="imageUrl != null and imageUrl != ''">imageUrl,</if>
         <if test="creatTime != null">creatTime</if>
         )values(
@@ -32,6 +33,7 @@
         <if test="imageName != null and imageName != ''">#{imageName},</if>
         <if test="imageType != null and imageType != ''">#{imageType},</if>
         <if test="imageSize != null and imageSize != ''">#{imageSize},</if>
+        <if test="imageResult != null and imageResult != ''">#{imageResult},</if>
         <if test="imageUrl != null and imageUrl != ''">#{imageUrl},</if>
         <if test="creatTime != null">#{creatTime}</if>
         )
