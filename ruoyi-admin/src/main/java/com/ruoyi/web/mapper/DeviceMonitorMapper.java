@@ -17,7 +17,7 @@ public interface DeviceMonitorMapper {
      * @param deviceInfo 仪表监测告警图片实体类
      * @return int
      */
-    int saveHelmetImage(DeviceInfo deviceInfo);
+    int saveDeviceImage(DeviceInfo deviceInfo);
 
 
 
