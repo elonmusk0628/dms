@@ -28,8 +28,10 @@ public class DeviceMonitorController extends BaseController {
     private IDeviceMonitorService deviceMonitorService;
 
     /**
-     *
-     * @return
+     * 上传仪表监测信息
+     * @param file
+     * @param request
+     * @return JSON
      */
     @PostMapping(value = "/avatar")
     public AjaxResult UploadDeviceInfo(@RequestParam("file") MultipartFile file, HttpServletRequest request){
