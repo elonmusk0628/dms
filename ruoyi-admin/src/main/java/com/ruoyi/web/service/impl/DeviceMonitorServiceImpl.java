@@ -73,6 +73,7 @@ public class DeviceMonitorServiceImpl implements IDeviceMonitorService{
         saveImageInfo.setImageName(deviceInfo.getImageName());
         saveImageInfo.setImageType(deviceInfo.getImageType());
         saveImageInfo.setImageSize(deviceInfo.getImageSize());
+        saveImageInfo.setImageResult(deviceInfo.getImageResult());
         saveImageInfo.setImageUrl(url);
         saveImageInfo.setCreatTime(deviceInfo.getCreatTime());
 
