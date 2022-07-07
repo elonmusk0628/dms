@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * 电科院告警信息
+ * 电科院安全帽监测控制层
  *
  * @author maj
  * @date created by 2022-06-30 14:35
@@ -27,12 +27,11 @@ public class UploadHelmetImageController extends BaseController {
     @Autowired
     private IUploadHelmetImageService uploadHelmetImageService;
 
-
     /**
-     *
+     * 上传安全帽监测信息
      * @param file
      * @param request
-     * @return
+     * @return JSON
      */
     @PostMapping(value = "/avatar")
     public AjaxResult UploadHelmetInfo(@RequestParam("file") MultipartFile file, HttpServletRequest request){
