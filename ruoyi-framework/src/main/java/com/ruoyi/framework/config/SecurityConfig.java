@@ -117,6 +117,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/warning/**").anonymous()
                 // 仪表监测授权
                 .antMatchers("/device/**").anonymous()
+                .antMatchers("/device/**").permitAll()
                 // 除上面外的所有请求全部需要鉴权认证
                 .anyRequest().authenticated()
                 .and()
