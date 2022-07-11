@@ -47,5 +47,5 @@ public class DeviceInfo {
     private String imageUrl;
 
     /** 发送时间 */
-    private Date creatTime;
+    private Date createTime;
 }
