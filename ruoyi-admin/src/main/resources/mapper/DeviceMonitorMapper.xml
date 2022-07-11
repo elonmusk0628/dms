@@ -12,14 +12,15 @@
         <result property="imageType"         column="imageType"     />
         <result property="imageSize"         column="imageSize"     />
         <result property="imageUrl"          column="imageUrl"      />
-        <result property="creatTime"         column="creatTime"     />
+        <result property="createTime"        column="createTime"    />
     </resultMap>
 
     <sql id="selectDeviceVo">
-        select deviceId,deviceName,deviceType,imageName,imageType,imageSize,imageResult,imageUrl,createTime
+        select deviceId,deviceName,deviceType,imageName,imageType,imageSize,imageResult,imageUrl,create_time
         from device_info
     </sql>
 
+    <!-- 保存上传仪表图片 -->
     <insert id="saveDeviceImage" parameterType="com.ruoyi.web.domain.DeviceInfo" useGeneratedKeys="true" keyProperty="id">
         insert into device_info (
         <if test="deviceId != null">deviceId,</if>
@@ -30,7 +31,7 @@
         <if test="imageSize != null and imageSize != ''">imageSize,</if>
         <if test="imageResult != null and imageResult != ''">imageResult,</if>
         <if test="imageUrl != null and imageUrl != ''">imageUrl,</if>
-        <if test="creatTime != null">creatTime</if>
+        <if test="createTime != null">createTime</if>
         )values(
         <if test="deviceId != null">#{deviceId},</if>
         <if test="deviceName != null and deviceName != ''">#{deviceName},</if>
@@ -40,10 +41,11 @@
         <if test="imageSize != null and imageSize != ''">#{imageSize},</if>
         <if test="imageResult != null and imageResult != ''">#{imageResult},</if>
         <if test="imageUrl != null and imageUrl != ''">#{imageUrl},</if>
-        <if test="creatTime != null">#{creatTime}</if>
+        <if test="createTime != null">#{createTime}</if>
         )
     </insert>
 
+    <!-- 查询仪表信息列表 -->
     <select id="selectDeviceList" parameterType="DeviceInfo" resultMap="DeviceInfoResult">
         <include refid="selectDeviceVo"/>
         <where>
