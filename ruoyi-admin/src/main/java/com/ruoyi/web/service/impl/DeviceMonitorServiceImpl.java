@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 仪表监测图片 服务层实现类
@@ -28,8 +29,8 @@ public class DeviceMonitorServiceImpl implements IDeviceMonitorService{
 
     /**
      * 上传仪表监测图片(file类型)
-     * @param file
-     * @return
+     * @param file 上传文件
+     * @return 成功信息
      * @throws IOException
      */
     @Override
@@ -60,8 +61,8 @@ public class DeviceMonitorServiceImpl implements IDeviceMonitorService{
 
     /**
      * 保存仪表监测图片(file类型)
-     * @param url
-     * @param deviceInfo
+     * @param url 图片链接
+     * @param deviceInfo 设备信息
      */
     @Override
     public void saveDeviceImage(String url, DeviceInfo deviceInfo) {
@@ -75,9 +76,19 @@ public class DeviceMonitorServiceImpl implements IDeviceMonitorService{
         saveImageInfo.setImageSize(deviceInfo.getImageSize());
         saveImageInfo.setImageResult(deviceInfo.getImageResult());
         saveImageInfo.setImageUrl(url);
-        saveImageInfo.setCreatTime(deviceInfo.getCreatTime());
+        saveImageInfo.setCreateTime(deviceInfo.getCreateTime());
 
         // 调用mapper接口保存仪表监测图片
         deviceMonitorMapper.saveDeviceImage(saveImageInfo);
+    }
+
+    /**
+     * 查询仪表信息列表
+     * @param deviceInfo 设备信息
+     * @return 仪表设备信息列表
+     */
+    @Override
+    public List<DeviceInfo> selectDeviceList(DeviceInfo deviceInfo) {
+        return deviceMonitorMapper.selectDeviceList(deviceInfo);
     }
 }
