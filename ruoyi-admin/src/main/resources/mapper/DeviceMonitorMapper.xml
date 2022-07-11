@@ -15,6 +15,11 @@
         <result property="creatTime"         column="creatTime"     />
     </resultMap>
 
+    <sql id="selectDeviceVo">
+        select deviceId,deviceName,deviceType,imageName,imageType,imageSize,imageResult,imageUrl,createTime
+        from device_info
+    </sql>
+
     <insert id="saveDeviceImage" parameterType="com.ruoyi.web.domain.DeviceInfo" useGeneratedKeys="true" keyProperty="id">
         insert into device_info (
         <if test="deviceId != null">deviceId,</if>
@@ -38,5 +43,23 @@
         <if test="creatTime != null">#{creatTime}</if>
         )
     </insert>
+
+    <select id="selectDeviceList" parameterType="DeviceInfo" resultMap="DeviceInfoResult">
+        <include refid="selectDeviceVo"/>
+        <where>
+            <if test="deviceName != null and deviceName != ''">
+                AND deviceName like concat('%', #{deviceName}, '%')
+            </if>
+            <if test="deviceType != null and deviceType != ''">
+                AND deviceType = #{deviceType}
+            </if>
+            <if test="imageName != null and imageName != ''">
+                AND imageName like concat('%', #{imageName}, '%')
+            </if>
+            <if test="imageType != null and imageType != ''">
+                AND imageType = #{imageType}
+            </if>
+        </where>
+    </select>
 
 </mapper>
