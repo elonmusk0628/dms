@@ -3,6 +3,8 @@ package com.ruoyi.web.mapper;
 import com.ruoyi.web.domain.DeviceInfo;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 上传仪表监测图片 数据层
  *
@@ -19,7 +21,10 @@ public interface DeviceMonitorMapper {
      */
     int saveDeviceImage(DeviceInfo deviceInfo);
 
-
-
-
+    /**
+     * 查询仪表信息列表
+     * @param deviceInfo 设备信息
+     * @return 设备信息列表
+     */
+    List<DeviceInfo> selectDeviceList(DeviceInfo deviceInfo);
 }
