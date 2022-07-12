@@ -1,6 +1,7 @@
 package com.ruoyi.web.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,11 +42,12 @@ public class DeviceInfo {
     private Double imageSize;
 
     /** 识别结果 */
-    private Double imageResult;
+    private String imageResult;
 
     /** 图片链接 */
     private String imageUrl;
 
     /** 发送时间 */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 }
