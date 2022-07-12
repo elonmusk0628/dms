@@ -1,6 +1,7 @@
 package com.ruoyi.web.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,5 +41,6 @@ public class HelmetInfo {
     private String imageUrl;
 
     /** 发送时间 */
-    private Date creatTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createTime;
 }
