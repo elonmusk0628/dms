@@ -73,7 +73,7 @@ public class UploadHelmetImageServiceImpl  implements IUploadHelmetImageService 
         saveImageInfo.setImageType(helmetInfo.getImageType());
         saveImageInfo.setImageSize(helmetInfo.getImageSize());
         saveImageInfo.setImageUrl(url);
-        saveImageInfo.setCreatTime(helmetInfo.getCreatTime());
+        saveImageInfo.setCreateTime(helmetInfo.getCreateTime());
 
         // 调用mapper接口保存安全帽监测图片
         uploadHelmetImageMapper.saveHelmetImage(saveImageInfo);
