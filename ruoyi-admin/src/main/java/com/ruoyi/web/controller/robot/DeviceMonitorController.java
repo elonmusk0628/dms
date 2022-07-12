@@ -59,7 +59,7 @@ public class DeviceMonitorController extends BaseController {
         deviceInfo.setImageName(request.getParameter("imageName"));
         deviceInfo.setImageType(request.getParameter("imageType"));
         deviceInfo.setImageSize(Double.valueOf(request.getParameter("imageSize")));
-        deviceInfo.setImageResult(Double.valueOf(request.getParameter("imageResult")));
+        deviceInfo.setImageResult(request.getParameter("imageResult"));
         deviceInfo.setCreateTime(DateTime.of(request.getParameter("createTime"),"yyyy-MM-dd HH:mm:ss"));
 
         // 保存仪表监测图片
