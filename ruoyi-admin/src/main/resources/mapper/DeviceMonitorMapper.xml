@@ -16,7 +16,7 @@
     </resultMap>
 
     <sql id="selectDeviceVo">
-        select deviceId,deviceName,deviceType,imageName,imageType,imageSize,imageResult,imageUrl,create_time
+        select deviceId,deviceName,deviceType,imageName,imageType,imageSize,imageResult,imageUrl,createTime
         from device_info
     </sql>
 
@@ -44,6 +44,7 @@
         <if test="createTime != null">#{createTime}</if>
         )
     </insert>
+
 
     <!-- 查询仪表信息列表 -->
     <select id="selectDeviceList" parameterType="DeviceInfo" resultMap="DeviceInfoResult">
