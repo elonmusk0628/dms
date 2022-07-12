@@ -11,7 +11,7 @@
         <result property="imageType"         column="imageType"     />
         <result property="imageSize"         column="imageSize"     />
         <result property="imageUrl"          column="imageUrl"      />
-        <result property="creatTime"         column="creatTime"     />
+        <result property="createTime"         column="createTime"     />
     </resultMap>
 
     <insert id="saveHelmetImage" parameterType="com.ruoyi.web.domain.HelmetInfo" useGeneratedKeys="true" keyProperty="id">
@@ -22,7 +22,7 @@
         <if test="imageType != null and imageType != ''">imageType,</if>
         <if test="imageSize != null and imageSize != ''">imageSize,</if>
         <if test="imageUrl != null and imageUrl != ''">imageUrl,</if>
-        <if test="creatTime != null">creatTime</if>
+        <if test="createTime != null">createTime</if>
         )values(
         <if test="deviceId != null">#{deviceId},</if>
         <if test="deviceName != null and deviceName != ''">#{deviceName},</if>
@@ -30,7 +30,7 @@
         <if test="imageType != null and imageType != ''">#{imageType},</if>
         <if test="imageSize != null and imageSize != ''">#{imageSize},</if>
         <if test="imageUrl != null and imageUrl != ''">#{imageUrl},</if>
-        <if test="creatTime != null">#{creatTime}</if>
+        <if test="createTime != null">#{createTime}</if>
         )
     </insert>
 
