@@ -55,11 +55,10 @@ public class UploadHelmetImageController extends BaseController {
         helmetInfo.setImageName(request.getParameter("imageName"));
         helmetInfo.setImageType(request.getParameter("imageType"));
         helmetInfo.setImageSize(Double.valueOf(request.getParameter("imageSize")));
-        helmetInfo.setCreatTime(DateTime.of(request.getParameter("creatTime"),"yyyy-MM-dd HH:mm:ss"));
+        helmetInfo.setCreateTime(DateTime.of(request.getParameter("createTime"),"yyyy-MM-dd HH:mm:ss"));
 
         // 保存安全帽监测图片
         uploadHelmetImageService.saveHelmetImage(url,helmetInfo);
-
         return AjaxResult.success("告警信息上传成功!");
     }
 }
