@@ -62,11 +62,11 @@
         <el-table-column label="图片名称" width="125" align="center" prop="imageName"/>
         <el-table-column label="图片类型" width="80"  align="center" prop="imageType"/>
         <el-table-column label="图片大小" width="80"  align="center" prop="imageSize"/>
-        <el-table-column label="仪表数值" width="80" align="center" prop="imageResult"/>
+        <el-table-column label="仪表数值" width="80"  align="center" prop="imageResult"/>
         <el-table-column label="图片链接" width="750" align="center" prop="imageUrl"/>
         <el-table-column label="创建时间" width="160" align="center" prop="createTime" >
           <template slot-scope="scope">
-            <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d} {h}:{i}:{s}') }}</span>
+            <span>{{ parseTime(scope.row.createTime) }}</span>
           </template>
         </el-table-column>
       </el-table>
