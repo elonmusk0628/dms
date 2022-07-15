@@ -114,7 +114,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers(HttpMethod.GET, "/", "/*.html", "/**/*.html", "/**/*.css", "/**/*.js", "/profile/**").permitAll()
                 .antMatchers("/swagger-ui.html", "/swagger-resources/**", "/webjars/**", "/*/api-docs", "/druid/**").permitAll()
                 // 安全帽监测授权
-                .antMatchers("/warning/**").anonymous()
+                .antMatchers("/robot/**").anonymous()
+                .antMatchers("/robot/**").permitAll()
                 // 仪表监测授权
                 .antMatchers("/device/**").anonymous()
                 .antMatchers("/device/**").permitAll()
