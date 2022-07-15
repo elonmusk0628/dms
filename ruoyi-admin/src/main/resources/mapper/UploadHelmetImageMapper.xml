@@ -14,6 +14,12 @@
         <result property="createTime"         column="createTime"     />
     </resultMap>
 
+    <sql id="selectHelmetVo">
+        select deviceId,deviceName,imageName,imageType,imageSize,imageUrl,createTime
+        from helmet_info
+    </sql>
+
+    <!-- 保存上传安全帽监测图片 -->
     <insert id="saveHelmetImage" parameterType="com.ruoyi.web.domain.HelmetInfo" useGeneratedKeys="true" keyProperty="id">
         insert into helmet_info (
         <if test="deviceId != null">deviceId,</if>
@@ -33,5 +39,21 @@
         <if test="createTime != null">#{createTime}</if>
         )
     </insert>
+
+    <!-- 查询安全帽监测信息列表 -->
+    <select id="selectHelmetList" parameterType="HelmetInfo" resultMap="HelmetInfoResult">
+        <include refid="selectHelmetVo"/>
+        <where>
+            <if test="deviceName != null and deviceName != ''">
+                AND deviceName like concat('%', #{deviceName}, '%')
+            </if>
+            <if test="imageName != null and imageName != ''">
+                AND imageName like concat('%', #{imageName}, '%')
+            </if>
+            <if test="imageType != null and imageType != ''">
+                AND imageType = #{imageType}
+            </if>
+        </where>
+    </select>
 
 </mapper>
