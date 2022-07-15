@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 安全帽监测图片 服务层实现类
@@ -77,5 +78,15 @@ public class UploadHelmetImageServiceImpl  implements IUploadHelmetImageService 
 
         // 调用mapper接口保存安全帽监测图片
         uploadHelmetImageMapper.saveHelmetImage(saveImageInfo);
+    }
+
+    /**
+     * 查询安全帽监测信息列表
+     * @param helmetInfo 安全帽信息实体类
+     * @return 安全帽监测信息列表
+     */
+    @Override
+    public List<HelmetInfo> selectHelmetList(HelmetInfo helmetInfo) {
+        return uploadHelmetImageMapper.selectHelmetList(helmetInfo);
     }
 }
