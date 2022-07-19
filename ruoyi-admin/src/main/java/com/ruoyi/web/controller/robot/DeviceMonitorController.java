@@ -1,10 +1,13 @@
 package com.ruoyi.web.controller.robot;
 
 import cn.hutool.core.date.DateTime;
+import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.constant.Constants;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.web.domain.DeviceInfo;
 import com.ruoyi.web.service.IDeviceMonitorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -70,7 +74,7 @@ public class DeviceMonitorController extends BaseController {
 
     /**
      * 查询仪表信息列表
-     * @param deviceInfo 设备信息
+     * @param deviceInfo 设备信息实体类
      * @return 设备信息列表
      */
     @PreAuthorize("@ss.hasPermi('device:monitor:list')")
@@ -80,4 +84,22 @@ public class DeviceMonitorController extends BaseController {
         List<DeviceInfo> list = deviceMonitorService.selectDeviceList(deviceInfo);
         return getDataTable(list);
     }
+
+    /**
+     * 导出仪表信息列表
+     * @param response 前端请求响应
+     * @param deviceInfo 设备信息实体类
+     */
+    @Log(title="仪表监测", businessType=BusinessType.EXPORT)
+    @PreAuthorize("@ss.hasPermi('device:monitor:export')")
+    @PostMapping("/export")
+    public void export(HttpServletResponse response, DeviceInfo deviceInfo){
+        List<DeviceInfo> list = deviceMonitorService.selectDeviceList(deviceInfo);
+        ExcelUtil<DeviceInfo> util = new ExcelUtil<>(DeviceInfo.class);
+        util.exportExcel(response,list,"仪表监测数据");
+    }
+
+
+
+
 }
