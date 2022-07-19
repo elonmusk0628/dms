@@ -55,21 +55,49 @@
         		<el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
       </el-form-item>
 
+      <el-row :gutter="10" class="mb8">
+        <el-col :span="1.5">
+          <el-button
+            type="warning"
+            plain
+            icon="el-icon-download"
+            size="mini"
+            @click="handleExport"
+            v-hasPermi="['device:monitor:export']"
+          >导出</el-button>
+        </el-col>
+        <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
+      </el-row>
+
 			<el-table v-loading="loading" :data="deviceList" >
-				<el-table-column label="设备编号" width="95"  align="center" prop="deviceId" />
-				<el-table-column label="设备名称" width="80"  align="center" prop="deviceName"/>
-				<el-table-column label="设备类型" width="140" align="center" prop="deviceType"/>
-        <el-table-column label="图片名称" width="125" align="center" prop="imageName"/>
-        <el-table-column label="图片类型" width="80"  align="center" prop="imageType"/>
-        <el-table-column label="图片大小" width="80"  align="center" prop="imageSize"/>
+        <el-table-column type="selection" width="55" align="center" />
+				<el-table-column label="设备编号" width="95"  align="center" prop="deviceId"   />
+				<el-table-column label="设备名称" width="80"  align="center" prop="deviceName" />
+				<el-table-column label="设备类型" width="140" align="center" prop="deviceType" />
+        <el-table-column label="图片名称" width="125" align="center" prop="imageName"  />
+        <el-table-column label="图片类型" width="80"  align="center" prop="imageType"  />
+        <el-table-column label="图片大小" width="80"  align="center" prop="imageSize"  />
         <el-table-column label="仪表数值" width="80"  align="center" prop="imageResult"/>
-        <el-table-column label="图片链接" width="750" align="center" prop="imageUrl"/>
+        <el-table-column label="图片链接" width="350" align="center" prop="imageUrl"   show-overflow-tooltip >
+          <template slot-scope="scope">
+            <a :href="scope.row.imageUrl" target="_blank" class="el-button--text">{{ scope.row.imageUrl }}</a>
+          </template>
+        </el-table-column>
         <el-table-column label="创建时间" width="160" align="center" prop="createTime" >
           <template slot-scope="scope">
             <span>{{ parseTime(scope.row.createTime) }}</span>
           </template>
         </el-table-column>
       </el-table>
+
+      <pagination
+        v-show="total>0"
+        :total="total"
+        :page.sync="queryParams.pageNum"
+        :limit.sync="queryParams.pageSize"
+        @pagination="getList"
+      />
+
 		</el-form>
 	</div>
 </template>
@@ -123,8 +151,19 @@ export default {
         this.total = response.total;
         this.loading = false;
       });
+    },
+    /** 导出按钮操作 */
+    handleExport() {
+      this.$confirm('是否确认导出所有用户数据项?', '警告', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.download('device/monitor/export', {
+          ...this.queryParams
+        }, `device_${new Date().getTime()}.xlsx`)
+      }).catch(() => {});
     }
-
   }
 }
 </script>
