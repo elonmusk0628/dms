@@ -132,6 +132,7 @@
             <version>3.4.2</version>
         </dependency>
 
+        <!-- annotations包 -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>annotations</artifactId>
