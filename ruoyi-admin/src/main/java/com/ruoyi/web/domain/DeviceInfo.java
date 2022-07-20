@@ -3,7 +3,6 @@ package com.ruoyi.web.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +19,7 @@ import java.util.Date;
 @Setter
 @Data
 @TableName(value = "device_info")
-public class DeviceInfo extends BaseEntity {
+public class DeviceInfo {
 
     private static final long serialVersionUID = 1L;
 
