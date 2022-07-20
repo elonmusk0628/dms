@@ -70,7 +70,6 @@
       </el-row>
 
 			<el-table v-loading="loading" :data="deviceList" >
-        <el-table-column type="selection" width="55" align="center" />
 				<el-table-column label="设备编号" width="95"  align="center" prop="deviceId"   />
 				<el-table-column label="设备名称" width="80"  align="center" prop="deviceName" />
 				<el-table-column label="设备类型" width="140" align="center" prop="deviceType" />
