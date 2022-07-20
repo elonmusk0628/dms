@@ -55,13 +55,12 @@
       </el-row>
 
 			<el-table v-loading="loading" :data="helmetList">
-        <el-table-column type="selection" width="55" align="center" />
-				<el-table-column label="设备编号" width="95"  align="center" prop="deviceId"  />
-				<el-table-column label="设备名称" width="80"  align="center" prop="deviceName"/>
-				<el-table-column label="图片名称" width="140" align="center" prop="imageName" />
-				<el-table-column label="图片类型" width="80"  align="center" prop="imageType" />
-				<el-table-column label="图片大小" width="80"  align="center" prop="imageSize" />
-        <el-table-column label="图片链接" width="350" align="center" prop="imageUrl"  show-overflow-tooltip>
+				<el-table-column label="设备编号" width="100"  align="center" prop="deviceId"  />
+				<el-table-column label="设备名称" width="80"  align="center"  prop="deviceName"/>
+				<el-table-column label="图片名称" width="140" align="center"  prop="imageName" />
+				<el-table-column label="图片类型" width="80"  align="center"  prop="imageType" />
+				<el-table-column label="图片大小" width="80"  align="center"  prop="imageSize" />
+        <el-table-column label="图片链接" width="400" align="center"  prop="imageUrl"  show-overflow-tooltip>
           <template slot-scope="scope">
             <a :href="scope.row.imageUrl" target="_blank" class="el-button--text">{{ scope.row.imageUrl }}</a>
           </template>
