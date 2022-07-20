@@ -3,7 +3,6 @@ package com.ruoyi.web.domain;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +18,7 @@ import java.util.Date;
 @Setter
 @Data
 @TableName(value = "helmet_info")
-public class HelmetInfo extends BaseEntity {
+public class HelmetInfo {
 
     /** 图片ID(自增) */
     private Long id;
